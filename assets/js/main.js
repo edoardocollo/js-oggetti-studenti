@@ -1,13 +1,20 @@
-// // // 1 Creare un oggetto che descriva uno studente con le seguenti proprietà: nome, cognome e età. Stampare a schermo attraverso il for in tutte le proprietà.
+// // // // 1 Creare un oggetto che descriva uno studente con le seguenti proprietà: nome, cognome e età. Stampare a schermo attraverso il for in tutte le proprietà.
 var studente = {
-  nome : 'mario',
-  cognome : 'rossi',
-  eta : 22
+  img : 'img/Darth-Vader.png',
+  nome : 'Edoardo',
+  cognome : 'Collo',
+  eta : 32
 };
 var target = $('#alert_box');
 for (var key in studente) {
   var contenuto = target.html()
-  target.html(contenuto + `<p>${key}: ${studente[key]}</p>`)
+  if (key == 'img') {
+    target.html(contenuto + `<img src="${studente[key]}">`);
+
+  }else{
+
+    target.html(contenuto + `<h2>${key}:</h2> <p>${studente[key]}</p>`);
+  }
 }
 
 
@@ -20,21 +27,25 @@ setTimeout(function () {
   // genero array oggetti
   studenti = [
     {
+      img : 'img/Clone-Trooper.png',
       nome : 'mario',
       cognome : 'rossi',
       eta : 22
     },
     {
+      img : 'img/Death-Sta.png',
       nome : 'gino',
       cognome : 'bianchi',
       eta : 30
     },
     {
+      img : 'img/Master-Joda.png',
       nome : 'beppe',
       cognome : 'gialli',
       eta : 40
     },
     {
+      img : 'img/R2D2.png',
       nome : 'gigi',
       cognome : 'verdi',
       eta : 27
@@ -42,13 +53,17 @@ setTimeout(function () {
   ]
   // ciclo l'array per stampare valori
   var contatoreStudenti = 1;
+  target.css('flexDirection','row');
+  target.css('flexWrap','wrap');
 
   for (var i = 0; i < studenti.length; i++) {
+    var imgStudente = studenti[i].img;
     var nomeStudente = studenti[i].nome;
     var cognomeStudente = studenti[i].cognome;
+    var etaStudente = studenti[i].eta
     var contenuto2 = target.html()
 
-    target.html(contenuto2 + `<p>Studente ${contatoreStudenti} nome: ${nomeStudente} cognome: ${cognomeStudente}</p>`);
+    target.html(contenuto2 + `<div class="small_card"><img src="${imgStudente}"><h3>nome:</h3> <p>${nomeStudente}</p><h3>cognome:</h3> <p>${cognomeStudente}</p><h3>eta':</h3> <p>${etaStudente}</p>`);
     contatoreStudenti++;
   }
 }, 5000);
