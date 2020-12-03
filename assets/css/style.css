@@ -6,6 +6,7 @@
   height: 100vh;
 }
 #alert_box {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,10 +24,33 @@ p{
   border-radius: 10px;
   box-shadow: 1px 1px 2px inset;
 }
+.gameh1,
+.dragon,
+.street,
+.slug,
+.gameh2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.dragon,
+.street,
+.slug {
+  width: 400px;
+}
+.o0 {
+  opacity: 0;
+}
+.o1{
+  opacity: 1;
+  transition: all 2s ;
+}
+h2{
+  text-align: center;
+}
 h2, h3{
   text-transform: uppercase;
-}
-h3 {
   margin: 0;
 }
 .small_card {
@@ -45,4 +69,7 @@ h3 {
 }
 .small_card img {
   height: 150px;
+}
+.pmini {
+  margin: 2px
 }
